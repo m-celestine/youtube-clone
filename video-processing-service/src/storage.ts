@@ -10,9 +10,12 @@ import ffmpeg from 'fluent-ffmpeg'; // Tool to convert/resize videos
 const storage = new Storage();
 
 // Name of the cloud folder where ORIGINAL videos are stored
-const rawVideoBucketName = "mc-yt-videos";
+const rawVideoBucketName = "mc-yt-raw-videos";
 // Name of the cloud folder where CONVERTED videos are stored
 const processedVideoBucketName = "mc-yt-processed-videos";
+
+console.log("Using raw bucket:", rawVideoBucketName);
+console.log("Using processed bucket:", processedVideoBucketName);
 
 // Path to the folder on THIS computer where original videos are saved
 const localRawVideoPath = "./raw-videos";

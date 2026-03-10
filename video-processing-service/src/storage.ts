@@ -100,9 +100,8 @@ export async function uploadProcessedVideo(fileName: string) {
   const bucket = storage.bucket(processedVideoBucketName);
 
   // Upload the converted video from this computer to the cloud
-  await storage.bucket(processedVideoBucketName)
-    .upload(`${localProcessedVideoPath}/${fileName}`, {
-      destination: fileName, // Save it with the same name in the cloud
+  await bucket.upload(`${localProcessedVideoPath}/${fileName}`, {
+      destination: fileName // Save it with the same name in the cloud
     });
   // Tell us the upload is done
   console.log(

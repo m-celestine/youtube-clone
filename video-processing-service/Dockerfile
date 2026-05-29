@@ -16,8 +16,11 @@ RUN npm install
 # Copy app source inside the docker image
 COPY . .
 
-# Make port 3000 available(to the world) outside this container
-EXPOSE 3000
+# Build the TypeScript app
+RUN npm run build
 
-# Define the command to run the app when the container starts
-CMD ["npm", "start"]
+# Make port 8080 available outside this container
+EXPOSE 8080
+
+# Define the command to run the compiled app when the container starts
+CMD ["npm", "run", "serve"]

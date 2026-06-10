@@ -7,13 +7,10 @@ import {
     onAuthStateChanged,
     User
 } from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// My Web App's Firebase configuration (replace with your own config)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -26,6 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+export const functions = getFunctions();
 
 /**
  * Signs the user in with Google using a popup.
